@@ -13,7 +13,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pip install requirements.txt'
+                sh 'pip install flake8'
             }
         }
     }
