@@ -21,6 +21,7 @@ pipeline {
                 pip3 install flake8
                 deactivate
                 '''
+                sh 'pip install flake8'
             }
         }
     }
