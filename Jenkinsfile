@@ -13,7 +13,14 @@ pipeline {
                 }
             }
             steps {
-                sh 'pip install flake8'
+                sh '''
+                python -m pip install --upgrade pip
+                python -m pip install virtualenv
+                virtualenv venv
+                . venv/bin/activate
+                pip3 install flake8
+                deactivate
+                '''
             }
         }
     }
