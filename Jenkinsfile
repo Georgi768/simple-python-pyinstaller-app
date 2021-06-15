@@ -15,6 +15,7 @@ pipeline {
             steps {
                 //This sh step runs the Python command to compile your application and
                 //its calc library into byte code files, which are placed into the sources workspace directory
+                sh "pip install requirements.txt"
                 sh 'python -m pip install flake8'
             }
         }
