@@ -7,9 +7,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                   sh 'pip install --user -r requirements.txt'
-                   sh 'pip install flake8'
-                   sh 'flake8 sources/calc.py'
+                   withEnv(["HOME=${env.WORKSPACE}"]) {
+                        sh 'pip install --user -r requirements.txt'
+                        sh 'pip install flake8'
+                        sh 'flake8 sources/calc.py'
+                    }
             }
         }
     }
