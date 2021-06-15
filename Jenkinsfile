@@ -1,18 +1,25 @@
 pipeline {
 //None parameter in the agent section means that no global agent will be allocated for the entire Pipeline’s
 //execution and that each stage directive must specify its own agent section.
-    agent {
-        docker 'python:3.9'
-    }
+    agent none
     stages {
         stage('Build') {
-            steps {
-                   withEnv(["HOME=${env.WORKSPACE}"]) {
-                        sh 'pip install --user -r requirements.txt'
-                        sh 'pip install flake8'
-                        sh 'flake8 sources/calc.py'
-                    }
+            agent {
+                docker {
+                    //This image parameter (of the agent section’s docker parameter) downloads the python:2-alpine
+                    //Docker image and runs this image as a separate container. The Python container becomes
+                    //the agent that Jenkins uses to run the Build stage of your Pipeline project.
+                    image 'python:3'
+                }
             }
+            sh '''
+                    python -m pip install --upgrade pip
+                    python -m pip install virtualenv
+                    virtualenv venv
+                    . venv/bin/activate
+                    pip3 install flake8
+                    deactivate
+                '''
         }
     }
 }
