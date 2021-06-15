@@ -12,7 +12,8 @@ pipeline {
                     image 'python:3'
                 }
             }
-            sh '''
+            steps {
+                sh '''
                     python -m pip install --upgrade pip
                     python -m pip install virtualenv
                     virtualenv venv
@@ -20,6 +21,7 @@ pipeline {
                     pip3 install flake8
                     deactivate
                 '''
+            }
         }
     }
 }
