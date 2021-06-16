@@ -24,5 +24,11 @@ pipeline {
                 sh 'pip install flake8'
             }
         }
+        stage("test")
+        {
+            agent{
+                sh 'flake8 sources/calc.py'
+            }
+        }
     }
 }
