@@ -22,8 +22,16 @@ pipeline {
         stage("Validate"){
             steps{
                 sh 'flake8 sources/Hello.py'
-                sh 'docker version'
             }
         }
+        stage("Deploy")
+        {
+            steps{
+                sh 'docker version'
+
+            }
+
+        }
+
     }
 }
