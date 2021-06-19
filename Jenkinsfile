@@ -26,6 +26,7 @@ pipeline {
         }
         stage("Deploy")
         {
+        agent any
             steps{
                 sh """
                     docker build -t Challenge/Hello.py:lastest
