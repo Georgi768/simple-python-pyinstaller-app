@@ -27,7 +27,7 @@ pipeline {
         stage("Deploy")
         {
             steps{
-                sh 'docker build -t Challenge/Hello.py:lastest . '
+                sh 'docker version'
 
             }
 
