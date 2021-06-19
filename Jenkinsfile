@@ -24,7 +24,7 @@ pipeline {
                 sh 'flake8 sources/Hello.py'
             }
         }
-        stage("Test")
+        stage("Deploy")
         {
             steps{
                 sh """
