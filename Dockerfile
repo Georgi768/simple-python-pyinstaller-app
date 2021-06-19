@@ -12,7 +12,7 @@ FROM python:3
 
 COPY requirements.txt ./
 
-COPY sources/calc.py .
+COPY sources/Hello.py .
 
 #Upadate the image into the latest packages
 
