@@ -28,9 +28,7 @@ pipeline {
         {
             agent { dockerfile true }
             steps{
-                sh """
-                    docker build -t Challenge/Hello.py:lastest
-                """
+                sh 'docker build -t Challenge/Hello.py:lastest . '
 
             }
 
