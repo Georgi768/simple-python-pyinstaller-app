@@ -19,10 +19,21 @@ pipeline {
                 sh 'pip install flake8'
             }
         }
-        stage("test"){
+        stage("Validate"){
             steps{
                 sh 'flake8 sources/calc.py'
             }
         }
+        stage("Test")
+        {
+            steps{
+                sh """
+                    docker build -t Challenge/challenges.py:lastest
+                """
+
+            }
+
+        }
+
     }
 }
