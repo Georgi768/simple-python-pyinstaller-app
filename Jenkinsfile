@@ -26,6 +26,9 @@ pipeline {
         }
         stage("Deploy")
         {
+          agent {
+            label 'docker'
+          }
             steps{
                 sh 'docker version'
 
