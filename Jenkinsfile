@@ -1,7 +1,7 @@
 pipeline {
     agent{
             docker {
-            image 'docker'
+            image 'python:3.9'
         }
     }
 
@@ -26,6 +26,11 @@ pipeline {
         }
         stage("Deploy")
         {
+            agent{
+                 docker {
+                    image 'docker'
+                 }
+             }
             steps{
                 sh 'docker version'
 
