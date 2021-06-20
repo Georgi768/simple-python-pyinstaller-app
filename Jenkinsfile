@@ -21,6 +21,11 @@ pipeline {
             }
         }
         stage("Validate"){
+            agent{
+            docker {
+                image 'python:3.9'
+                }
+            }
             steps{
                 sh 'flake8 sources/Hello.py'
             }
