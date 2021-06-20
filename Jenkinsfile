@@ -2,12 +2,12 @@ pipeline {
     agent none
 
     stages {
-        agent{
-            docker {
-            image 'python:3.9'
-        }
-    }
         stage('Build') {
+                agent{
+            docker {
+                image 'python:3.9'
+                }
+            }
             steps {
                 sh '''
                 python -m pip install --upgrade pip
