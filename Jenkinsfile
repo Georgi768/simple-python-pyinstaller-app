@@ -17,7 +17,6 @@ pipeline {
                 pip3 install flake8
                 deactivate
                 '''
-                sh 'pip install flake8'
             }
         }
         stage("Validate"){
@@ -27,6 +26,7 @@ pipeline {
                 }
             }
             steps{
+                sh 'pip install flake8'
                 sh 'flake8 sources/Hello.py'
             }
         }
