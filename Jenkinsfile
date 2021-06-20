@@ -21,7 +21,7 @@ pipeline {
             }
         }
         stage("Validate"){
-            agent{
+                agent{
             docker {
                 image 'python:3.9'
                 }
